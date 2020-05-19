@@ -16,7 +16,6 @@ A MATLAB implementation of feature fused VIDeo quality EVALuator (VIDEVAL)
 ```
 demo_compute_VIDEVAL_feats.m
 ```
-
 You need to specify the parameters
 
 #### Quality Prediction with Pre-trained Model
@@ -30,14 +29,14 @@ Then run:
 demo_pred_MOS_pretrained_VIDEVAL.py
 ```
 
-#### Evaluation BVQA Models on One Dataset
+#### Evaluation of BVQA Model on One Dataset
 
 ```
 demo_eval_BVQA_feats_one_dataset.py
 ```
 You need to specify the parameters
 
-#### Evaluation BVQA Models on All-Combined Dataset
+#### Evaluation of BVQA Model on All-Combined Dataset
 
 ```
 demo_eval_BVQA_feats_all_combined.py
