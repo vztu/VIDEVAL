@@ -42,3 +42,6 @@ You need to specify the parameters
 demo_eval_BVQA_feats_all_combined.py
 ```
 You need to specify the parameters
+
+## Contact
+Zhengzhong TU, ```zhengzhong.tu@utexas.edu```
