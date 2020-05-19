@@ -1,0 +1,11 @@
+function [x_sigma, x_gam] = gaussian_para_esti(x)
+% x = x(:);
+gam = 0.2:0.001:10;
+r_gam = (gamma(1./gam).*gamma(3./gam))./((gamma(2./gam)).^2);
+x_mu = mean(x);
+x_sigma_sq = mean((x - x_mu).^2);
+x_sigma = sqrt(x_sigma_sq);
+E_x = mean(abs(x - x_mu));
+rho_x = x_sigma_sq/E_x^2;
+[x_diff, x_ind] = min(abs(rho_x - r_gam));
+x_gam = gam(x_ind);  
