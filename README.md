@@ -6,7 +6,7 @@ A MATLAB implementation of feature fused VIDeo quality EVALuator (VIDEVAL)
 
 * MATLAB
 * FFmpeg
-* python 3.6 or higher
+* python 3.6.7
 * sklearn 0.20.3
 
 ## Demos
