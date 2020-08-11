@@ -1,5 +1,7 @@
 # VIDEVAL_release
-A MATLAB implementation of feature fused VIDeo quality EVALuator (VIDEVAL)
+A MATLAB implementation of feature fused VIDeo quality EVALuator (VIDEVAL) proposed in [UGC-VQA: Benchmarking blind video quality assessment for user generated content](https://arxiv.org/abs/2005.14354).
+
+Check out our performance benchmark results in https://github.com/tu184044109/BVQA_Benchmark.
 
 
 ## Installation
@@ -42,6 +44,19 @@ You need to specify the parameters
 demo_eval_BVQA_feats_all_combined.py
 ```
 You need to specify the parameters
+
+## Citation
+
+If you use this code for your research, please cite our papers.
+
+```
+@article{tu2020ugc,
+  title={UGC-VQA: Benchmarking Blind Video Quality Assessment for User Generated Content},
+  author={Tu, Zhengzhong and Wang, Yilin and Birkbeck, Neil and Adsumilli, Balu and Bovik, Alan C},
+  journal={arXiv preprint arXiv:2005.14354},
+  year={2020}
+}
+```
 
 ## Contact
 Zhengzhong TU, ```zhengzhong.tu@utexas.edu```
