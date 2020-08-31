@@ -22,6 +22,8 @@ You need to specify the parameters
 
 #### Quality Prediction with Pre-trained Model
 
+This pre-trained model was trained on the combined dataset.
+
 You need first extract features:
 ```
 demo_compute_VIDEVAL_feats.m
