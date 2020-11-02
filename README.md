@@ -3,6 +3,7 @@ A MATLAB implementation of feature fused VIDeo quality EVALuator (VIDEVAL) propo
 
 Check out our performance benchmark results in https://github.com/tu184044109/BVQA_Benchmark.
 
+[Gitee](https://gitee.com/) mirror: https://gitee.com/zhengzhong-tu/VIDEVAL_release
 
 ## Installation
 
