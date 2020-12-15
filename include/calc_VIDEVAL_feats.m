@@ -394,7 +394,7 @@ function feat = compute_friquee_luma_features(imgray)
     
     % 71:74 --> 69:72
     % Laplacian of the Luminance Map
-    addpath('include/matlabPyrTools');
+    addpath(genpath(fullfile('include', 'matlabPyrTools')));
     
     % Extract the first laplacian of the image.
     [pyr pind] = buildLpyr(imgray,4);
@@ -497,7 +497,8 @@ function feat = compute_friquee_chroma_features(imyuv)
     feat = [feat lsigma skewness(divNormDoGSigma(:))];% 72 73
     
     % Laplacian of the Chroma Map
-    addpath('include/matlabPyrTools');
+    addpath(genpath(fullfile('include', 'matlabPyrTools')));
+
     [pyr pind] = buildLpyr(imChroma,4);
     res =  pyrBand(pyr, pind, 1);
     feat = [feat skewness(res(:))];%79
