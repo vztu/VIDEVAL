@@ -7,10 +7,12 @@ Check out our performance benchmark results in https://github.com/tu184044109/BV
 
 ## Installation
 
+> [Note] Recommended system is Linux. Windows MATLAB users may suffer from `WARNING: You should compile the MEX version of "*.c"` and was extremely slow from our tests.
+
 * MATLAB
 * FFmpeg
-* python 3.6.7
-* sklearn 0.20.3
+* python3
+* sklearn
 
 ## Demos
 
