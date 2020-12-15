@@ -3,7 +3,7 @@
 % 
 close all; 
 clear;
-
+warning('off','all');
 % add path
 addpath(genpath('include'));
 
