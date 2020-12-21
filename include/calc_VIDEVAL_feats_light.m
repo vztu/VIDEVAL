@@ -13,10 +13,22 @@
 %  Output:
 %           VIDEVAL_all_features:   Resulting VIDEVAL feature vector (60-dim)
 %
+% Note: this is a light version of VIDEVAL, which has been spatially and 
+%       temporally sped up.
 %
+%  - Resized frames to 720p if larger than 720p keeping aspect ratio
+%  - Sampled at most 6 frames for each 1-second block
 
 %%
-function [VIDEVAL_all_features] = calc_VIDEVAL_feats(test_video, width, height, framerate)
+function [VIDEVAL_all_features] = calc_VIDEVAL_feats_light(test_video, ...
+        width, height, framerate, max_reso, frs_per_blk)
+    % setup speededup params
+%     max_reso = 480;
+%     frs_per_blk = 3;
+    
+    % subsampling ratio
+    ratio = max_reso / min(width, height);
+    fr_step = max(floor(framerate / frs_per_blk),1); 
     
     % Try to open test_video; if cannot, return
     test_file = fopen(test_video,'r');
@@ -38,21 +50,30 @@ function [VIDEVAL_all_features] = calc_VIDEVAL_feats(test_video, width, height, 
     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
     % Loop through all the frames in the frame_range to compute frame features 
     %
-    fprintf('Computing frame features every second frame on frames %d..%d\n', ...
+    fprintf('Computing frame features on frames %d..%d\n', ...
             frame_start, frame_end);
      
     frame_features_all = [];
-    for i = frame_start:2:frame_end
+    for i = frame_start:fr_step:frame_end
         % Read frames i-i, i and i+1 (note that frame_start must be > 0)
         if first_frame_loaded
             prev_YUV_frame = next_YUV_frame;
             this_YUV_frame = YUVread(test_file,[width height],i);
             next_YUV_frame = YUVread(test_file,[width height],i+1);
+            if ratio < 1
+                this_YUV_frame = imresize(this_YUV_frame, ratio);
+                next_YUV_frame = imresize(next_YUV_frame, ratio);
+            end
         else
             prev_YUV_frame = YUVread(test_file,[width height],i-1);
             this_YUV_frame = YUVread(test_file,[width height],i);
             next_YUV_frame = YUVread(test_file,[width height],i+1);
             first_frame_loaded = 1;
+            if ratio < 1
+                prev_YUV_frame = imresize(prev_YUV_frame, ratio);
+                this_YUV_frame = imresize(this_YUV_frame, ratio);
+                next_YUV_frame = imresize(next_YUV_frame, ratio);
+            end
         end
         %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
         % Compute BRISQUE features # 5(std), 9, 23, 29
@@ -98,12 +119,12 @@ function [VIDEVAL_all_features] = calc_VIDEVAL_feats(test_video, width, height, 
         33, 45, 49, 50];
     avg_pool_idx = [2:4, 7, 9, 10, 12, 13:20, 25, 27, 29, 30, 32, 34:48];
     n_temp_vecs = length(frame_features_all(:,1)); 
-    half_framerate = floor(framerate/2);
+%     half_framerate = floor(framerate/2);
     
     fprintf('Mean and standard deviation pooling of frame-wise features...\n');
-    for j = 1:half_framerate:n_temp_vecs - half_framerate
+    for j = 1:frs_per_blk:n_temp_vecs - frs_per_blk
         j_start = j; 
-        j_end = j + half_framerate;
+        j_end = min(n_temp_vecs, j + frs_per_blk);
         % mean and std pooling
         std_feats = [std_feats; std(frame_features_all(j_start:j_end, std_pool_idx))];
         avg_feats = [avg_feats; mean(frame_features_all(j_start:j_end, avg_pool_idx))];
@@ -111,9 +132,12 @@ function [VIDEVAL_all_features] = calc_VIDEVAL_feats(test_video, width, height, 
     
     % compute TLVQM HCF features # 1 2 17 22 24 30
     tlvqm_hcf_feats = [];
-    fprintf('Computing TLVQM-HCF features at 1 fr/sec...\n');
+    fprintf('Computing TLVQM-HCF features at 1fps...\n');
     for fr=floor(framerate/2):framerate:frame_end
         YUV_frame = YUVread(test_file,[width height],fr-1);
+        if ratio < 1
+            YUV_frame = imresize(YUV_frame, ratio);
+        end
         ftrs = compute_tlvqm_hcf_features(YUV_frame./255);
         tlvqm_hcf_feats = [tlvqm_hcf_feats; ftrs];
     end

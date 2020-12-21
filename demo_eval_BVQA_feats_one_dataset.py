@@ -44,7 +44,7 @@ warnings.filterwarnings("ignore")
 
 model_name = 'SVR'  # regression model
 data_name = 'YOUTUBE_UGC' # dataset name
-algo_name = 'VIDEVAL' # evaluated model
+algo_name = 'VIDEVAL_light' # evaluated model
 color_only = True # if True, it is YouTube-UGCc dataset; if False it is YouTube-UGC
 csv_file = os.path.join('features', data_name+'_metadata.csv')
 mat_file = os.path.join('features', data_name+'_'+algo_name+'_feats.mat')
