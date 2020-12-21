@@ -28,7 +28,7 @@ VIDEVAL_light_\${res}s_\${fps}fps is the __light__ version of VIDEVAL where inpu
 Speed was evaluated on the whole `calc_VIDEVAL_feats.m` function. The unit is average `secs/video`. 
 
 |    Methods   |  540p@30fps@8sec | 720p@30fps@10sec | 1080p@30fps@10sec | 4k@60fps@20s | scability |
-|:-----------:|:----:|:----:|:------:|:--------:|
+|:-----------:|:----:|:----:|:------:|:--------:|:------------:|
 | VIDEVAL      |   61.9   |  146.5   |  354.5   |  6053.0   | :no_good_man::cursing_face: |	
 | VIDEVAL_light_480s_3fps | 12.2 | 16.6 | 20.4 | 77.9  | :+1::blush: |
 
