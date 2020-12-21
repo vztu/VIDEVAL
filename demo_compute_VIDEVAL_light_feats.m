@@ -9,7 +9,7 @@ addpath(genpath('include'));
 
 %%
 % parameters
-algo_name = 'VIDEVAL_light'; % algorithm name, eg, 'V-BLIINDS'
+algo_name = 'VIDEVAL_light720'; % algorithm name, eg, 'V-BLIINDS'
 data_name = 'LIVE_VQC';  % dataset name, eg, 'KONVID_1K'
 
 %% parameters for VIDEVAL-light
@@ -20,7 +20,7 @@ data_name = 'LIVE_VQC';  % dataset name, eg, 'KONVID_1K'
 %              speed on high-fps videos.
 %           min frs_per_blk should be 2.
 % Note this may affect the performance.
-max_reso = 480;
+max_reso = 720;
 frs_per_blk = 3;
 
 %% *You need to customize here*

@@ -21,16 +21,24 @@ VIDEVAL_light_\${res}s_\${fps}fps is the __light__ version of VIDEVAL where inpu
 |    Methods   | KoNViD-1k             | LIVE-VQC             | YouTube-UGC         | All-Combined |
 |:------------:|:---------------------:|:--------------------:|:-------------------:|:------------:|
 | VIDEVAL      | 0.7832 / 0.7803 | 0.7522 / 0.7514  | 0.7787 / 0.7733 | 0.7960 / 0.7939  |
+| VIDEVAL_light_720s_3fps | | | | 
 | VIDEVAL_light_480s_3fps | 0.7281 / 0.7338 | 0.7144 / 0.7209  | 0.7140 / 0.7134 | 0.7462 / 0.7537  |
 
 ### Speed
 
 Speed was evaluated on the whole `calc_VIDEVAL_feats.m` function. The unit is average `secs/video`. 
 
-|    Methods   |  540p@30fps@8sec | 720p@30fps@10sec | 1080p@30fps@10sec | 4k@60fps@20s | scability |
+|    Methods   |  540p | 720p | 1080p | 4k@60 | scability |
 |:-----------:|:----:|:----:|:------:|:--------:|:------------:|
-| VIDEVAL      |   61.9   |  146.5   |  354.5   |  6053.0   | :no_good_man::cursing_face: |	
+| VIDEVAL      |   61.9   |  146.5   |  354.5   |  6053.0   | :no_good_man::cursing_face: |
+| VIDEVAL_light_720s_3fps | | | | 
 | VIDEVAL_light_480s_3fps | 12.2 | 16.6 | 20.4 | 77.9  | :+1::blush: |
+
+Note:
+- 540p: 540p@30fps@8sec in KoNViD-1k
+- 720p: 720p@30fps@10sec in LIVE-VQC
+- 1080p: 1080p@30fps@10sec in LIVE-VQC
+- 4k@60: 4k@60fps@20s in YouTube-UGC
 
 ## Installation
 
