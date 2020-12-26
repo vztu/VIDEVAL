@@ -37,7 +37,7 @@ feats_mat = zeros(num_videos, 60);
 
 %% extract features
 % parfor i = 1:num_videos % for parallel speedup
-for i = 242:num_videos
+for i = 1:num_videos
 %     try
         % get video full path and decoded video name
         if strcmp(data_name, 'TEST_VIDEOS')
