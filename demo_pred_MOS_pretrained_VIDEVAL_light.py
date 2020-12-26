@@ -1,17 +1,17 @@
 # -*- coding: utf-8 -*-
 """
-This script predicts a quality score in [1,5] given a VIDEVAL feature 
-vector by a pretrained VIDEVAL model
+This script predicts a quality score in [1,5] given a VIDEVAL_light feature 
+vector by a pretrained VIDEVAL_light model
 
 Input: 
 
 - feature matrix: 
-    eg, features/TEST_VIDEOS_VIDEVAL_feats.mat
+    eg, features/TEST_VIDEOS_VIDEVAL_light720_6fps_feats.mat
 
 Output: 
 
 - predicted scores: 
-    eg, results/TEST_VIDEOS_VIDEVAL_pred.csv
+    eg, results/TEST_VIDEOS_VIDEVAL_light720_6fps_pred.csv
 
 """
 # Load libraries
@@ -35,7 +35,7 @@ warnings.filterwarnings("ignore")
 
 model_name = 'SVR'
 data_name = 'TEST_VIDEOS'
-algo_name = 'VIDEVAL'
+algo_name = 'VIDEVAL_light720_6fps'
 mat_file = os.path.join('features', data_name+'_'+algo_name+'_feats.mat')
 model_file = os.path.join('model', algo_name+'_trained_svr.pkl')
 scaler_file = os.path.join('model', algo_name+'_trained_scaler.pkl')
@@ -62,7 +62,7 @@ def logistic_func(X, bayta1, bayta2, bayta3, bayta4):
     logisticPart = 1 + np.exp(np.negative(np.divide(X - bayta3, np.abs(bayta4))))
     yhat = bayta2 + np.divide(bayta1 - bayta2, logisticPart)
     return yhat
-        
+
 y = logistic_func(y_pred, *popt)
 print('Predicted MOS in [1,5]:')
 print(y)
