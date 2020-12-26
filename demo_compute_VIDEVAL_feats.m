@@ -10,7 +10,7 @@ addpath(genpath('include'));
 %%
 % parameters
 algo_name = 'VIDEVAL'; % algorithm name, eg, 'V-BLIINDS'
-data_name = 'YOUTUBE_UGC';  % dataset name, eg, 'KONVID_1K'
+data_name = 'TEST_VIDEOS';  % dataset name, eg, 'KONVID_1K'
 
 %% *You need to customize here*
 if strcmp(data_name, 'TEST_VIDEOS')
@@ -74,6 +74,7 @@ for i = 242:num_videos
 %     catch
 %         feats_mat(i,:) = NaN;
 %     end
+        save(out_feat_name, 'feats_mat');
 end
 % save feature matrix
 save(out_feat_name, 'feats_mat');
