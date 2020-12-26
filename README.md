@@ -7,10 +7,12 @@ Check out our BVQA resource list and performance benchmark/leaderboard results i
 
 The recommended system is Linux, than Windows. Mac is not supported though due to FRIQUEE [issue](https://github.com/vztu/VIDEVAL_release/issues/5).
 
+Should you find any problems, please feel free to send an [issue](https://github.com/vztu/BVQA_Benchmark/issues) or email [me](mailto:zhengzhong.tu@utexas.edu).
+
 ## Updates
 
 - :bug: [12-17-2020] Mac system is not supported since there was an error on calling the `mex` files [here](https://github.com/vztu/VIDEVAL_release/tree/master/include/matlabPyrTools/MEX). It also means that the FRIQUEE model cannot be run on Mac too. Thanks to @CXMANDTXW for finding this in [issue](https://github.com/vztu/VIDEVAL_release/issues/5).
-- :sparkles: [12-20-2020] `demo_compute_VIDEVAL_light_feats.m` was provided as a speed-up version of vanilla VIDEVAL, albeit the performance may drop. Please check [Performances](#performances) for the performance-speed tradeoff.
+- :sparkles: [12-20-2020] A light version `VIDEVAL_light_$$$` was provided as a speed-up version of vanilla VIDEVAL (scales better for high resolution and high fps), albeit the performance may drop. Please check [Performances](#performances) for the performance-speed tradeoff. Check [Demos](#demos) for the running of light VIDEVAL.
 
 
 ## Performances
@@ -18,7 +20,7 @@ The recommended system is Linux, than Windows. Mac is not supported though due t
 ### SRCC / PLCC
 
 VIDEVAL means the original VIDEVAL in `demo_compute_VIDEVAL_feats.m`. It operates on the __original__ frame resolution sampled at __every second frame__.
-VIDEVAL_light_\${res}s_\${fps}fps is the __light__ version of VIDEVAL where input video is spatially downscaled to \${res} at a frame sampling rate of \${fps} fps.
+VIDEVAL_light_\${res}s_\${fps}fps is the __light__ version of VIDEVAL where input video is spatially downscaled to \${res} at a frame sampling rate of \${fps} fps. Check `demo_compute_VIDEVAL_light_feats.m`. Note that speed-up parameters `[max_reso,frs_per_blk]` can be played with for specific application scenarios.
 
 |    Methods   | KoNViD-1k | LIVE-VQC             | YouTube-UGC         | All-Combined |
 |:------------:|:---------------------:|:--------------------:|:-------------------:|:------------:|
@@ -33,10 +35,10 @@ Speed was evaluated on the whole `calc_VIDEVAL_feats.m` function. The unit is av
 
 |    Methods   |  540p | 720p | 1080p | 4k@60 | scalability |
 |:-----------:|:----:|:----:|:------:|:--------:|:------------:|
-| VIDEVAL      |   61.9   |  146.5   |  354.5   |  6053.0   | :no_good_man::cursing_face: |
-| VIDEVAL_light_720s_6fps | 29.9 | 68.2 | 72.6 | 205.2 | 
-| VIDEVAL_light_720s_3fps | 15.7 | 33.6 | 40.9 | 115.9 | :+1::astonished:	
-| VIDEVAL_light_480s_3fps | 12.2 | 16.6 | 20.4 | 77.9  | 	:rocket::blush: |
+| VIDEVAL      |   61.9   |  146.5   |  354.5   |  6053.0   | :snail: :cursing_face: |
+| VIDEVAL_light_720s_6fps | 29.9 | 68.2 | 72.6 | 205.2 | :bullettrain_front: :sweat_smile: |
+| VIDEVAL_light_720s_3fps | 15.7 | 33.6 | 40.9 | 115.9 | :airplane:	:astonished:	
+| VIDEVAL_light_480s_3fps | 12.2 | 16.6 | 20.4 | 77.9  | 	:rocket: :blush: |
 
 Note:
 - 540p: 540p@30fps@8sec in KoNViD-1k
@@ -60,6 +62,11 @@ Note:
 ```
 demo_compute_VIDEVAL_feats.m
 ```
+
+or light version:
+```
+demo_compute_VIDEVAL_light_feats.m
+```
 You need to specify the parameters
 
 #### Quality Prediction with Pre-trained Model
@@ -70,9 +77,18 @@ You need first extract features:
 ```
 demo_compute_VIDEVAL_feats.m
 ```
+or light version:
+```
+demo_compute_VIDEVAL_light_feats.m
+```
+
 Then run:
 ```
 demo_pred_MOS_pretrained_VIDEVAL.py
+```
+or light version:
+```
+demo_pred_MOS_pretrained_VIDEVAL_light.py
 ```
 
 #### Evaluation of BVQA Model on One Dataset
