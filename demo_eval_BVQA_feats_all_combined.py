@@ -47,7 +47,7 @@ warnings.filterwarnings("ignore")
 
 model_name = 'SVR' # regression model
 data_name = 'ALL_COMBINED' # dataset name
-algo_name = 'VIDEVAL_light' # evaluated model
+algo_name = 'VIDEVAL_light720_6fps' # evaluated model
 color_only = True # if True, YouTube-UGCc dataset; if False, YouTube-UGC
 use_inlsa = True # if True, apply INLSA calibration of MOS.
 result_file = os.path.join('results', data_name+'_'+algo_name+'_corr.mat')

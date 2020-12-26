@@ -9,8 +9,8 @@ addpath(genpath('include'));
 
 %%
 % parameters
-algo_name = 'VIDEVAL_light720'; % algorithm name, eg, 'V-BLIINDS'
-data_name = 'LIVE_VQC';  % dataset name, eg, 'KONVID_1K'
+algo_name = 'VIDEVAL_light720_6fps'; % algorithm name, eg, 'V-BLIINDS'
+data_name = 'YOUTUBE_UGC';  % dataset name, eg, 'KONVID_1K'
 
 %% parameters for VIDEVAL-light
 % max_reso: downscale the frames to a fixed resolution. Used for optimizing
@@ -21,7 +21,7 @@ data_name = 'LIVE_VQC';  % dataset name, eg, 'KONVID_1K'
 %           min frs_per_blk should be 2.
 % Note this may affect the performance.
 max_reso = 720;
-frs_per_blk = 3;
+frs_per_blk = 6;
 
 %% *You need to customize here*
 if strcmp(data_name, 'TEST_VIDEOS')
@@ -49,7 +49,7 @@ feats_mat = zeros(num_videos, 60);
 %% extract features
 % parfor i = 1:num_videos % for parallel speedup
 for i = 1:num_videos
-%     try
+    try
         % get video full path and decoded video name
         if strcmp(data_name, 'TEST_VIDEOS')
             video_name = fullfile(data_path,  filelist.video_name{i});
@@ -83,10 +83,10 @@ for i = 1:num_videos
         toc
         % clear cache
         delete(yuv_name)
-%     catch
-%         feats_mat(i,:) = NaN;
-%     end
-%     save(out_feat_name, 'feats_mat');
+    catch
+        feats_mat(i,:) = NaN;
+    end
+    save(out_feat_name, 'feats_mat');
 end
 % save feature matrix
 save(out_feat_name, 'feats_mat');

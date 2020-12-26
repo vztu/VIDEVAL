@@ -5,6 +5,8 @@ Check out our BVQA resource list and performance benchmark/leaderboard results i
 
 码云[Gitee](https://gitee.com/) mirror: https://gitee.com/zhengzhong-tu/VIDEVAL_release
 
+The recommended system is Linux, than Windows. Mac is not supported though due to FRIQUEE [issue](https://github.com/vztu/VIDEVAL_release/issues/5).
+
 ## Updates
 
 - :bug: [12-17-2020] Mac system is not supported since there was an error on calling the `mex` files [here](https://github.com/vztu/VIDEVAL_release/tree/master/include/matlabPyrTools/MEX). It also means that the FRIQUEE model cannot be run on Mac too. Thanks to @CXMANDTXW for finding this in [issue](https://github.com/vztu/VIDEVAL_release/issues/5).
@@ -18,21 +20,23 @@ Check out our BVQA resource list and performance benchmark/leaderboard results i
 VIDEVAL means the original VIDEVAL in `demo_compute_VIDEVAL_feats.m`. It operates on the __original__ frame resolution sampled at __every second frame__.
 VIDEVAL_light_\${res}s_\${fps}fps is the __light__ version of VIDEVAL where input video is spatially downscaled to \${res} at a frame sampling rate of \${fps} fps.
 
-|    Methods   | KoNViD-1k             | LIVE-VQC             | YouTube-UGC         | All-Combined |
+|    Methods   | KoNViD-1k | LIVE-VQC             | YouTube-UGC         | All-Combined |
 |:------------:|:---------------------:|:--------------------:|:-------------------:|:------------:|
 | VIDEVAL      | 0.7832 / 0.7803 | 0.7522 / 0.7514  | 0.7787 / 0.7733 | 0.7960 / 0.7939  |
-| VIDEVAL_light_720s_3fps | | | | 
+| VIDEVAL_light_720s_6fps | 0.7510 / 0.7510 | 0.7429 / 0.7453 | 0.7514 / 0.7477 | 0.7621 / 0.7689  | 
+| VIDEVAL_light_720s_3fps | 0.7492 / 0.7508 | 0.7174 / 0.7225  | 0.7445 / 0.7413  | 0.7584 / 0.7666 |
 | VIDEVAL_light_480s_3fps | 0.7281 / 0.7338 | 0.7144 / 0.7209  | 0.7140 / 0.7134 | 0.7462 / 0.7537  |
 
 ### Speed
 
 Speed was evaluated on the whole `calc_VIDEVAL_feats.m` function. The unit is average `secs/video`. 
 
-|    Methods   |  540p | 720p | 1080p | 4k@60 | scability |
+|    Methods   |  540p | 720p | 1080p | 4k@60 | scalability |
 |:-----------:|:----:|:----:|:------:|:--------:|:------------:|
 | VIDEVAL      |   61.9   |  146.5   |  354.5   |  6053.0   | :no_good_man::cursing_face: |
-| VIDEVAL_light_720s_3fps | | | | 
-| VIDEVAL_light_480s_3fps | 12.2 | 16.6 | 20.4 | 77.9  | :+1::blush: |
+| VIDEVAL_light_720s_6fps | 29.9 | 68.2 | 72.6 | 205.2 | 
+| VIDEVAL_light_720s_3fps | 15.7 | 33.6 | 40.9 | 115.9 | :+1::astonished:	
+| VIDEVAL_light_480s_3fps | 12.2 | 16.6 | 20.4 | 77.9  | 	:rocket::blush: |
 
 Note:
 - 540p: 540p@30fps@8sec in KoNViD-1k
