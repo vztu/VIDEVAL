@@ -20,7 +20,7 @@ Should you find any problems, please feel free to send an [issue](https://github
 ### SRCC / PLCC
 
 VIDEVAL means the original VIDEVAL in `demo_compute_VIDEVAL_feats.m`. It operates on the __original__ frame resolution sampled at __every second frame__.
-VIDEVAL_light_\${res}s_\${fps}fps is the __light__ version of VIDEVAL where input video is spatially downscaled to \${res} at a frame sampling rate of \${fps} fps. Check `demo_compute_VIDEVAL_light_feats.m`. Note that speed-up parameters `[max_reso,frs_per_blk]` can be played with for specific application scenarios.
+VIDEVAL_light_{res}s_{fps}fps is the __light__ version of VIDEVAL where input video is spatially downscaled to {res} at a frame sampling rate of {fps} fps. Check `demo_compute_VIDEVAL_light_feats.m`. Note that speed-up parameters `[max_reso,frs_per_blk]` can be played with for specific application scenarios.
 
 |    Methods   | KoNViD-1k | LIVE-VQC             | YouTube-UGC         | All-Combined |
 |:------------:|:---------------------:|:--------------------:|:-------------------:|:------------:|
