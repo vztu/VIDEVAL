@@ -46,6 +46,11 @@ Note:
 - 1080p: 1080p@30fps@10sec in LIVE-VQC
 - 4k@60: 4k@60fps@20s in YouTube-UGC
 
+#### Our empirical observations
+
+- Aggressive spatial downsampling will harm the performance on spatially-dominated datasets, KoNViD-1k, YouTube-UGC.
+- Increasing frame sampling rate benefits the performance on temporal-distorted or motion-intensive videos, as those in LIVE-VQC.
+
 ## Installation
 
 > [Note] Recommended system is Linux. Windows MATLAB users may suffer from `WARNING: You should compile the MEX version of "*.c"` and was slower from our tests.
