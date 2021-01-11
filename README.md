@@ -35,7 +35,7 @@ Speed was evaluated on the whole `calc_VIDEVAL_feats.m` function. The unit is av
 
 |    Methods   |  540p | 720p | 1080p | 4k@60 | scalability |
 |:-----------:|:----:|:----:|:------:|:--------:|:------------:|
-| VIDEVAL      |   61.9   |  146.5   |  354.5   |  6053.0   | :snail: :cursing_face: |
+| VIDEVAL      |   61.9   |  146.5   |  354.5   | 1716.3  | :snail: :cursing_face: |
 | VIDEVAL_light_720s_6fps | 29.9 | 68.2 | 72.6 | 205.2 | :bullettrain_front: :sweat_smile: |
 | VIDEVAL_light_720s_3fps | 15.7 | 33.6 | 40.9 | 115.9 | :airplane:	:astonished:	
 | VIDEVAL_light_480s_3fps | 12.2 | 16.6 | 20.4 | 77.9  | 	:rocket: :blush: |
