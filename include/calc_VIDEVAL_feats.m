@@ -464,6 +464,9 @@ function feat = compute_friquee_chroma_features(imyuv)
     %% scale2:   47   60   62 - 35 = 12    25    27
     imChroma = imresize(imChroma,0.5);
  
+    % Applying divisive normalization operation on the given gray scale image.
+    [structdis,~] = divisiveNormalization(imChroma);
+
     shifts = [1 0];
 
     % Construct the product neighborhood map.
