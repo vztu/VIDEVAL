@@ -126,8 +126,8 @@ function [VIDEVAL_all_features] = calc_VIDEVAL_feats_light(test_video, ...
         j_start = j; 
         j_end = min(n_temp_vecs, j + frs_per_blk);
         % mean and std pooling
-        std_feats = [std_feats; std(frame_features_all(j_start:j_end, std_pool_idx))];
-        avg_feats = [avg_feats; mean(frame_features_all(j_start:j_end, avg_pool_idx))];
+        std_feats = [std_feats; nanstd(frame_features_all(j_start:j_end, std_pool_idx))];
+        avg_feats = [avg_feats; nanmean(frame_features_all(j_start:j_end, avg_pool_idx))];
     end
     
     % compute TLVQM HCF features # 1 2 17 22 24 30
@@ -143,9 +143,9 @@ function [VIDEVAL_all_features] = calc_VIDEVAL_feats_light(test_video, ...
     end
     
     % Combine feature vectors
-    VIDEVAL_all_features = [mean(avg_feats)   ...
-                    mean(std_feats) ...
-                    mean(tlvqm_hcf_feats)];
+    VIDEVAL_all_features = [nanmean(avg_feats)   ...
+                    nanmean(std_feats) ...
+                    nanmean(tlvqm_hcf_feats)];
     
     fclose(test_file);
     fprintf('Extracting VIDEVAL features for %s finished!\n', test_video);
