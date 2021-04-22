@@ -21,6 +21,8 @@ elseif strcmp(data_name, 'LIVE_VQC')
     data_path = '/media/ztu/Seagate-ztu-ugc/LIVE_VQC/VideoDatabase';
 elseif strcmp(data_name, 'YOUTUBE_UGC')
     data_path = '/media/ztu/Seagate-ztu-ugc/YT_UGC/original_videos';
+elseif strcmp(data_name, 'LIVE_VQA')
+    data_path = '/media/ztu/Seagate-ztu/LIVE_VQA/videos';
 end
 
 %%
@@ -53,12 +55,18 @@ for i = 1:num_videos
             video_name = fullfile(data_path, filelist.category{i},...
                 [num2str(filelist.resolution(i)),'P'],[filelist.vid{i},'.mkv']);
             yuv_name = fullfile(video_tmp, [filelist.vid{i}, '.yuv']);
+    	elseif strcmp(data_name, 'LIVE_VQA')
+            strs = strsplit(filelist.filename{i}, '_');
+            video_name = fullfile(data_path, [strs{1}(1:2), '_Folder'], filelist.filename{i});
+            yuv_name = video_name;
         end
         fprintf('\n---\nComputing features for %d-th sequence: %s\n', i, video_name);
 
         % decode video and store in temp dir
+        if ~strcmp(video_name, yuv_name) 
         cmd = ['ffmpeg -loglevel error -y -i ', video_name, ' -pix_fmt yuv420p -vsync 0 ', yuv_name];
-        system(cmd);  
+        system(cmd);
+        end  
 
         % get video meta data
         width = filelist.width(i);
@@ -70,7 +78,9 @@ for i = 1:num_videos
         feats_mat(i,:) = calc_VIDEVAL_feats(yuv_name, width, height, framerate);
         toc
         % clear cache
+        if ~strcmp(data_name, 'LIVE_VQA')
         delete(yuv_name)
+        end
 %     catch
 %         feats_mat(i,:) = NaN;
 %     end
