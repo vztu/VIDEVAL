@@ -57,7 +57,8 @@ function [VIDEVAL_all_features] = calc_VIDEVAL_feats_light(test_video, ...
     for i = frame_start:fr_step:frame_end
         % Read frames i-i, i and i+1 (note that frame_start must be > 0)
         if first_frame_loaded
-            prev_YUV_frame = next_YUV_frame;
+            % prev_YUV_frame = next_YUV_frame;
+            prev_YUV_frame = YUVread(test_file,[width height],i-1);
             this_YUV_frame = YUVread(test_file,[width height],i);
             next_YUV_frame = YUVread(test_file,[width height],i+1);
             if ratio < 1
