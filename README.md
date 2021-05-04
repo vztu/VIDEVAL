@@ -116,11 +116,12 @@ You need to specify the parameters
 If you use this code for your research, please cite our papers.
 
 ```
-@article{tu2020ugc,
-  title={UGC-VQA: Benchmarking Blind Video Quality Assessment for User Generated Content},
+@article{tu2021ugc,
+  title={UGC-VQA: Benchmarking blind video quality assessment for user generated content},
   author={Tu, Zhengzhong and Wang, Yilin and Birkbeck, Neil and Adsumilli, Balu and Bovik, Alan C},
-  journal={arXiv preprint arXiv:2005.14354},
-  year={2020}
+  journal={IEEE Transactions on Image Processing},
+  year={2021},
+  publisher={IEEE}
 }
 ```
 
