@@ -11,6 +11,8 @@ Should you find any problems, please feel free to send an [issue](https://github
 
 ## Updates
 
+- [10-21-2021] All the features I used in the paper can be downloaded here: [Google Drive](https://drive.google.com/drive/folders/1_HFMO1KflNvlwkLC02ZWkxxiKZtFQqwV?usp=sharing) 
+- [10-21-2021] Added the code for calibrating dataset MOSs. Check `inlsa/` for more details.
 - :bug: [12-17-2020] Mac system is not supported since there was an error on calling the `mex` files [here](https://github.com/vztu/VIDEVAL_release/tree/master/include/matlabPyrTools/MEX). It also means that the FRIQUEE model cannot be run on Mac too. Thanks to @CXMANDTXW for finding this in [issue](https://github.com/vztu/VIDEVAL_release/issues/5).
 - :sparkles: [12-20-2020] A light version `VIDEVAL_light` was provided as a speed-up version of vanilla VIDEVAL (scales better for high resolution and high fps), albeit the performance may drop. Please check [Performances](#performances) for the performance-speed tradeoff. Check [Demos](#demos) for the running of light VIDEVAL.
 - :bug: [04-22-2021] Fixed nan bug by using nanmean(). Thanks to @Sissuire.
