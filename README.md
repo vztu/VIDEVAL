@@ -1,3 +1,8 @@
+[![PWC](https://img.shields.io/endpoint.svg?url=https://paperswithcode.com/badge/ugc-vqa-benchmarking-blind-video-quality/video-quality-assessment-on-youtube-ugc)](https://paperswithcode.com/sota/video-quality-assessment-on-youtube-ugc?p=ugc-vqa-benchmarking-blind-video-quality)
+[![PWC](https://img.shields.io/endpoint.svg?url=https://paperswithcode.com/badge/ugc-vqa-benchmarking-blind-video-quality/video-quality-assessment-on-konvid-1k)](https://paperswithcode.com/sota/video-quality-assessment-on-konvid-1k?p=ugc-vqa-benchmarking-blind-video-quality)
+[![PWC](https://img.shields.io/endpoint.svg?url=https://paperswithcode.com/badge/ugc-vqa-benchmarking-blind-video-quality/video-quality-assessment-on-live-fb-lsvq)](https://paperswithcode.com/sota/video-quality-assessment-on-live-fb-lsvq?p=ugc-vqa-benchmarking-blind-video-quality)
+[![PWC](https://img.shields.io/endpoint.svg?url=https://paperswithcode.com/badge/ugc-vqa-benchmarking-blind-video-quality/video-quality-assessment-on-live-vqc)](https://paperswithcode.com/sota/video-quality-assessment-on-live-vqc?p=ugc-vqa-benchmarking-blind-video-quality)
+
 # VIDEVAL
 A MATLAB implementation of feature fused VIDeo quality EVALuator (VIDEVAL) proposed in [IEEE TIP2021] [UGC-VQA: Benchmarking blind video quality assessment for user generated content](https://arxiv.org/abs/2005.14354). [IEEEXplore](https://ieeexplore.ieee.org/document/9405420)
 
